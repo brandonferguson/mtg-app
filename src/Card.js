@@ -9,6 +9,7 @@ class Card extends Component {
     };
   }
 
+  //Mounting API fetch
   async componentDidMount() {
     const card = await fetch(
       "https://api.magicthegathering.io/v1/cards/439395"
@@ -39,7 +40,7 @@ class Card extends Component {
         </div>
 
         <div className="cardImage col-sm-6">
-          <img src={card.imageUrl} />
+          <img src={card.imageUrl} alt={card.name} />
         </div>
         {/*
         {singleCard.map(c => (
