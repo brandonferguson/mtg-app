@@ -5,6 +5,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Cards from "./Cards";
 import Card from "./Card";
 import Sets from "./Sets";
+import Home from "./Home";
 
 class App extends Component {
   render() {
@@ -15,7 +16,8 @@ class App extends Component {
             <Sets />
           </div>
           <div className="col-sm-10">
-            <Route exact path="/" component={Cards} />
+            <Route exact path="/" component={Home} />
+            <Route path="/cards" component={Cards} />
             <Route path="/card" component={Card} />
           </div>
         </div>
