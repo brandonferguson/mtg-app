@@ -13,7 +13,7 @@ class Card extends Component {
   //API fetch
   async componentDidMount() {
     const card = await fetch(
-      `https://api.magicthegathering.io/v1/cards/409741`
+      `https://api.magicthegathering.io/v1/cards/439615` /*Need to update 439615 so it reacts dynmically based off multiverseid field selected */
     );
     const json = await card.json();
     this.setState({ card: json.card });

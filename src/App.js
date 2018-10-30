@@ -20,7 +20,6 @@ class App extends Component {
               <Route exact path="/" component={Cards} />
               <Route path="/cards/:multiverseid" component={Card} />
               <Route path="/cards" component={Cards} />
-              <Route path="/card" component={Card} />
               {/*<Route component={NotFound} />*/}
             </Switch>
           </div>
