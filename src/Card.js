@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Cards from "./Card";
 import "./index.css";
 
 class Card extends Component {
@@ -9,10 +10,10 @@ class Card extends Component {
     };
   }
 
-  //Mounting API fetch
+  //API fetch
   async componentDidMount() {
     const card = await fetch(
-      "https://api.magicthegathering.io/v1/cards/439395"
+      `https://api.magicthegathering.io/v1/cards/409741`
     );
     const json = await card.json();
     this.setState({ card: json.card });

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 //App components
 import Cards from "./Cards";
@@ -16,9 +16,13 @@ class App extends Component {
             <Sets />
           </div>
           <div className="col-sm-10">
-            <Route exact path="/" component={Home} />
-            <Route path="/cards" component={Cards} />
-            <Route path="/card" component={Card} />
+            <Switch>
+              <Route exact path="/" component={Cards} />
+              <Route path="/cards/:multiverseid" component={Card} />
+              <Route path="/cards" component={Cards} />
+              <Route path="/card" component={Card} />
+              {/*<Route component={NotFound} />*/}
+            </Switch>
           </div>
         </div>
       </BrowserRouter>
