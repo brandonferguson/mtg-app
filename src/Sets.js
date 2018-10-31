@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./index.css";
 
 class Sets extends Component {
@@ -10,7 +11,7 @@ class Sets extends Component {
   }
 
   async componentDidMount() {
-    const sets = await fetch("https://api.magicthegathering.io/v1/sets");
+    const sets = await fetch("https://api.magicthegathering.io/v1/sets/");
     const json = await sets.json();
     this.setState({ sets: json.sets });
   }
@@ -20,21 +21,13 @@ class Sets extends Component {
 
     return (
       <div className="row">
-        {sets.map(s => (
-          <div>
-            <ul>
-              <li>
-                <a
-                  href={`https://api.magicthegathering.io/v1/cards?page=1&set=${
-                    s.code
-                  }`}
-                >
-                  {s.name}
-                </a>
-              </li>
-            </ul>
-          </div>
-        ))}
+        <ul>
+          {sets.map(s => (
+            <li key={s.code}>
+              <Link to={`/sets/${s.code}/`}>{s.name}</Link>
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }

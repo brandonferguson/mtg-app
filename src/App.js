@@ -6,6 +6,7 @@ import Cards from "./Cards";
 import Card from "./Card";
 import Sets from "./Sets";
 import Home from "./Home";
+import SingleSet from "./SingleSet";
 
 class App extends Component {
   render() {
@@ -20,7 +21,9 @@ class App extends Component {
               <Route exact path="/" component={Cards} />
               <Route path="/cards/:multiverseid" component={Card} />
               <Route path="/cards" component={Cards} />
+              <Route path="/sets/:code" component={SingleSet} />
               {/*<Route component={NotFound} />*/}
+              <Route path="/home" component={Home} />
             </Switch>
           </div>
         </div>
