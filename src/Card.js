@@ -1,19 +1,21 @@
 import React, { Component } from "react";
-import Cards from "./Card";
+import Cards from "./Cards";
 import "./index.css";
 
 class Card extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      card: []
+      card: [],
+      id: props.match.multiverseid
     };
   }
 
   //API fetch
   async componentDidMount() {
+    const cardId = this.props.match.params.multiverseid;
     const card = await fetch(
-      `https://api.magicthegathering.io/v1/cards/439615` /*Need to update 439615 so it reacts dynmically based off multiverseid field selected */
+      `https://api.magicthegathering.io/v1/cards/${cardId}` /*Need to update 439615 so it reacts dynmically based off multiverseid field selected */
     );
     const json = await card.json();
     this.setState({ card: json.card });
