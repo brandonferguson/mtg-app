@@ -19,6 +19,7 @@ class SingleSet extends Component {
     `);
     const json = await set.json();
     this.setState({ set: json.cards });
+    window.scrollTo(0, 0);
   }
 
   render() {

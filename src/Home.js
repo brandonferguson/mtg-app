@@ -5,7 +5,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <h1>Magic: The Gathering Card Archvive</h1>
+        <h1>Magic: The Gathering Card Archive</h1>
         <p>
           The idea behind this project is to pull back data relatging to all
           Magic the Gathering cards, regardless of set or color. The end goal is

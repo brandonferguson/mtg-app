@@ -17,6 +17,7 @@ class Card extends Component {
     );
     const json = await card.json();
     this.setState({ card: json.card });
+    window.scrollTo(0, 0);
   }
 
   render() {
@@ -38,6 +39,7 @@ class Card extends Component {
             Power/Toughness: {card.power}/{card.toughness}
           </p>
           <p>Text: {card.text}</p>
+          <p>Flavor Text: {card.flavor}</p>
         </div>
 
         <div className="cardImage col-sm-6">

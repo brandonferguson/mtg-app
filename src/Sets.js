@@ -14,15 +14,20 @@ class Sets extends Component {
     const sets = await fetch("https://api.magicthegathering.io/v1/sets/");
     const json = await sets.json();
     this.setState({ sets: json.sets });
+    window.scrollTo(0, 0);
   }
 
   render() {
     const { sets } = this.state;
 
+    let filterSets = sets.filter(sets => {
+      return sets.type === "expansion" || sets.type === "core";
+    });
+
     return (
       <div className="row">
         <ul>
-          {sets.map(s => (
+          {filterSets.map(s => (
             <li key={s.code}>
               <Link to={`/sets/${s.code}/`}>{s.name}</Link>
             </li>

@@ -18,10 +18,15 @@ class App extends Component {
           </div>
           <div className="col-sm-10">
             <Switch>
-              <Route exact path="/" component={Cards} />
+              <Route exact path="/" component={Home} />
               <Route path="/cards/:multiverseid" component={Card} />
               <Route path="/cards" component={Cards} />
-              <Route path="/sets/:code" component={SingleSet} />
+              <Route
+                path="/sets/:code"
+                render={props => (
+                  <SingleSet key={props.match.params.code} {...props} />
+                )}
+              />{" "}
               {/*<Route component={NotFound} />*/}
               <Route path="/home" component={Home} />
             </Switch>

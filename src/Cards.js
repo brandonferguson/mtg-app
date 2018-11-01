@@ -15,6 +15,7 @@ class Cards extends Component {
     const cards = await fetch("https://api.magicthegathering.io/v1/cards");
     const json = await cards.json();
     this.setState({ cards: json.cards });
+    window.scrollTo(0, 0);
   }
 
   async componentDidUpdate(prevProps, prevState) {
