@@ -11,12 +11,15 @@ class Card extends Component {
 
   //API fetch
   async componentDidMount() {
+    /*Pulls cardId from match*/
     const cardId = this.props.match.params.multiverseid;
+    /*Updates cardId based off the match parameters*/
     const card = await fetch(
-      `https://api.magicthegathering.io/v1/cards/${cardId}` /*Updates cardId based off the match parameters*/
+      `https://api.magicthegathering.io/v1/cards/${cardId}`
     );
     const json = await card.json();
     this.setState({ card: json.card });
+    /*Resets scroll to top of page*/
     window.scrollTo(0, 0);
   }
 
@@ -39,10 +42,13 @@ class Card extends Component {
             Power/Toughness: {card.power}/{card.toughness}
           </p>
           <p>Text: {card.text}</p>
-          <p>Flavor Text: {card.flavor}</p>
+          <p>
+            Flavor Text:
+            <span className="flavor">{card.flavor}</span>
+          </p>
         </div>
 
-        <div className="cardImage col-sm-6">
+        <div className="thumbnail col-sm-6">
           <img src={card.imageUrl} alt={card.name} />
         </div>
         {/*

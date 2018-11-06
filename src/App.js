@@ -7,6 +7,7 @@ import Card from "./Card";
 import Sets from "./Sets";
 import Home from "./Home";
 import SingleSet from "./SingleSet";
+import NotFound from "./NotFound";
 
 class App extends Component {
   render() {
@@ -27,7 +28,7 @@ class App extends Component {
                   <SingleSet key={props.match.params.code} {...props} />
                 )}
               />{" "}
-              {/*<Route component={NotFound} />*/}
+              <Route component={NotFound} />
               <Route path="/home" component={Home} />
             </Switch>
           </div>

@@ -14,9 +14,9 @@ class SingleSet extends Component {
   // API Call and setting state to results
   async componentDidMount() {
     const setName = this.props.match.params.code;
-    const set = await fetch(`https://api.magicthegathering.io/v1/cards?set=${setName}
-  
-    `);
+    const set = await fetch(
+      `https://api.magicthegathering.io/v1/cards?set=${setName}`
+    );
     const json = await set.json();
     this.setState({ set: json.cards });
     window.scrollTo(0, 0);
@@ -32,9 +32,9 @@ class SingleSet extends Component {
           <div className="card col-sm-3" key={s.multiverseid}>
             {s.name} {/*card name */}
             <Link to={`/cards/${s.multiverseid}`}>
-              <img src={s.imageUrl} className="thumbnail" alt={s.name} />
+              <img src={s.imageUrl} className="thumbnail" alt={s.name} />{" "}
+              {/*card image */}
             </Link>
-            {/*card image */}
           </div>
         ))}
       </div>

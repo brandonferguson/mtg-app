@@ -21,16 +21,33 @@ code {
 .card {
   text-align: center;
   background-color: lightgray;
+  padding: .5em;
 }
 
 .thumbnail {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 5px;
+  padding-bottom: 0.5em;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .header {
   display: block;
 }
+
+.flavor {
+  font-style: italic;
+}
+
+.btn {
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+.scrollable-menu {
+  height: auto;
+  max-height: 500px;
+  overflow-x: hidden;
+}
+
 
