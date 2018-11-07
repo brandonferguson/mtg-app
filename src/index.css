@@ -6,7 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: darkgray;
+  background-color: #283655;
 }
 
 code {
@@ -15,20 +15,57 @@ code {
 }
 
 .row {
-  margin: 2em;
+  margin: 0em;
+}
+
+.darkestblue{
+  background-color: #1E1F26;
+  color: #d0e1f9;
+}
+
+.darkblue{
+  background-color: #283655;
+  color: #4d648d;
+
+}
+
+.midblue{
+  background-color: #4d648d;  
+  color: #d0e1f9;
+}
+
+lightblue{
+  background-color: #d0e1f9;
+  color: #4d648d;
+
 }
 
 .card {
   text-align: center;
-  background-color: lightgray;
-  padding: .5em;
+  margin: .2em;
+}
+
+.cardImage {
+  display: block;
+  margin: auto;
+}
+
+.cardHeader {
+  text-align: center;
+}
+
+.cardInfo {
+
+
 }
 
 .thumbnail {
   display: block;
-  padding-bottom: 0.5em;
+  padding-bottom: 1.5em;
   max-height: 100%;
   max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .header {
@@ -39,9 +76,13 @@ code {
   font-style: italic;
 }
 
+.btn-div {
+} 
+
 .btn {
-  padding-left: 3em;
-  padding-right: 3em;
+  padding-left: 2em;
+  padding-right: 2em;
+  margin: 1em;
 }
 
 .scrollable-menu {
@@ -50,4 +91,13 @@ code {
   overflow-x: hidden;
 }
 
+@media {max-width: 400px;
+  .btn-div {
+    width: 100%;
 
+  }
+
+  .row {
+    margin: 2px;
+  }
+}

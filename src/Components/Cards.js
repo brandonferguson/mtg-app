@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./index.css";
 
 class Cards extends Component {
   constructor(props) {
@@ -62,12 +61,17 @@ class Cards extends Component {
         <div className="row">
           {/* ---- Map through cards array to bring back name and image ----*/}
           {cards.map(c => (
-            <div className="card col-sm-3" key={c.multiverseid}>
-              {c.name} {/*card name */}
-              <Link to={`/cards/${c.multiverseid}`}>
-                <img src={c.imageUrl} className="thumbnail" alt={c.name} />
-              </Link>
-              {/*card image */}
+            <div
+              className="col-sm-12 col-md-6 col-lg-3 lightblue"
+              key={c.multiverseid}
+            >
+              <div className="card">
+                {c.name} {/*card name */}
+                <Link to={`/cards/${c.multiverseid}`}>
+                  <img src={c.imageUrl} className="thumbnail" alt={c.name} />
+                </Link>
+                {/*card image */}
+              </div>
             </div>
           ))}
         </div>

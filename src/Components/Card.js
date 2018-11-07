@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./index.css";
 
 class Card extends Component {
   constructor(props) {
@@ -28,28 +27,27 @@ class Card extends Component {
 
     return (
       <div className="row">
-        <div className="header col-sm-12">
+        <div className="cardHeader darkestblue col-lg-12">
           <h1>{card.name}</h1>
         </div>
 
-        <div className="cardInfo col-sm-6">
+        <div className="cardInfo midblue col-sm-6">
           <p>Original Set: {card.setName}</p>
           <p>Rarity: {card.rarity}</p>
           <p>Type: {card.type}</p>
           <p>Color: {card.colors}</p>
-          <p>Cost: {card.manaCost}</p>
+          <p>Mana Cost: {card.manaCost}</p>
           <p>
             Power/Toughness: {card.power}/{card.toughness}
           </p>
           <p>Text: {card.text}</p>
           <p>
-            Flavor Text:
-            <span className="flavor">{card.flavor}</span>
+            Flavor Text: <span className="flavor">{card.flavor}</span>
           </p>
         </div>
 
-        <div className="thumbnail col-sm-6">
-          <img src={card.imageUrl} alt={card.name} />
+        <div className="midblue col-sm-6">
+          <img src={card.imageUrl} alt={card.name} className="cardImage" />
         </div>
         {/*
         {singleCard.map(c => (
