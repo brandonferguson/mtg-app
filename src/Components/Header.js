@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import Sets from "./Sets";
 
 const Header = () => {
   return (
     <header>
-      <ul className="nav">
+      <ul className="nav darkblue">
         <li>
           <Sets />
         </li>

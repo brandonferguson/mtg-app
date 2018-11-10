@@ -5,7 +5,6 @@ import "./index.css";
 //App components
 import Cards from "./Components/Cards";
 import Card from "./Components/Card";
-import Sets from "./Components/Sets";
 import Home from "./Components/Home";
 import SingleSet from "./Components/SingleSet";
 import NotFound from "./Components/NotFound";

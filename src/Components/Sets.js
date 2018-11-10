@@ -43,7 +43,10 @@ class Sets extends Component {
           >
             {filterSets.map(s => (
               <li key={s.code}>
-                <Link to={`/sets/${s.code}/1`} className="dropdown-item">
+                <Link
+                  to={`/sets/${s.code}/${this.state.offsetPage}`}
+                  className="dropdown-item"
+                >
                   {s.name}
                 </Link>
               </li>

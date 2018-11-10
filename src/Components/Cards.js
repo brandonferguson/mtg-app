@@ -5,13 +5,13 @@ class Cards extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cards: [],
-      offsetPage: 1
+      cards: []
+      /*offsetPage: 1*/
     };
   }
   // API Call and setting state to results
   async componentDidMount() {
-    const cards = await fetch("https://api.magicthegathering.io/v1/cards");
+    const cards = await fetch(`https://api.magicthegathering.io/v1/cards`);
     const json = await cards.json();
     this.setState({ cards: json.cards });
     window.scrollTo(0, 0);
