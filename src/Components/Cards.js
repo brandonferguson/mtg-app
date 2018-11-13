@@ -5,36 +5,56 @@ class Cards extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cards: []
-      /*offsetPage: 1*/
+      cards: [],
+      offsetPage: 1,
+      totalPages: ""
     };
   }
   // API Call and setting state to results
   async componentDidMount() {
-    const cards = await fetch(`https://api.magicthegathering.io/v1/cards`);
+    const cards = await fetch(
+      `https://api.magicthegathering.io/v1/cards?pageSize=12`
+    );
     const json = await cards.json();
-    this.setState({ cards: json.cards });
+    const total = cards.headers.get("Total-Count");
+    const pageSize = cards.headers.get("Page-Size");
+    const totalPages = total / pageSize;
+    this.setState({ cards: json.cards, totalPages: totalPages });
     window.scrollTo(0, 0);
   }
 
-  async componentDidUpdate(prevProps, prevState) {
-    if (prevState.offsetPage !== this.state.offsetPage) {
-      const cards = await fetch(
-        `https://api.magicthegathering.io/v1/cards?page=${
-          this.state.offsetPage
-        }`
-      );
-      const json = await cards.json();
-      this.setState({ cards: json.cards });
-    }
-  }
+  // async componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.offsetPage !== this.state.offsetPage) {
+  //     const cards = await fetch(
+  //       `https://api.magicthegathering.io/v1/cards?page=${
+  //         this.state.offsetPage
+  //       }`
+  //     );
+  //     const json = await cards.json();
+  //     this.setState({ cards: json.cards });
+  //   }
+  // }
+
+  fetchCards = async page => {
+    const cards = await fetch(
+      `https://api.magicthegathering.io/v1/cards?page=${page}&pageSize=12`
+    );
+    const json = await cards.json();
+    this.setState({ cards: json.cards, offsetPage: page });
+  };
 
   decrementPage = () => {
-    this.setState({ offsetPage: this.state.offsetPage - 1 });
+    var offsetPage = this.state.offsetPage - 1;
+    if (offsetPage >= 1) {
+      this.fetchCards(offsetPage);
+    }
   };
 
   incrementPage = () => {
-    this.setState({ offsetPage: this.state.offsetPage + 1 });
+    var offsetPage = this.state.offsetPage + 1;
+    if (offsetPage <= this.state.totalPages) {
+      this.fetchCards(offsetPage);
+    }
   };
 
   render() {
@@ -61,10 +81,7 @@ class Cards extends Component {
         <div className="row">
           {/* ---- Map through cards array to bring back name and image ----*/}
           {cards.map(c => (
-            <div
-              className="col-sm-12 col-md-6 col-lg-3 lightblue"
-              key={c.multiverseid}
-            >
+            <div className="col-sm-12 col-md-6 col-lg-3 lightblue" key={c.id}>
               <div className="card">
                 {c.name} {/*card name */}
                 <Link to={`/cards/${c.multiverseid}`}>
