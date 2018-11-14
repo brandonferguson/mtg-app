@@ -25,7 +25,7 @@ class App extends Component {
               <Route path="/cards/:multiverseid" component={Card} />
               <Route path="/cards" component={Cards} />
               <Route
-                path="/sets/:code/"
+                path="/sets/:code"
                 render={props => (
                   <SingleSet key={props.match.params.code} {...props} />
                 )}

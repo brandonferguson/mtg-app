@@ -53,11 +53,6 @@ code {
   text-align: center;
 }
 
-.cardInfo {
-
-
-}
-
 .thumbnail {
   display: block;
   padding-bottom: 1.5em;
@@ -67,6 +62,7 @@ code {
   margin-right: auto;
 }
 
+
 .header {
   display: block;
 }
@@ -75,8 +71,6 @@ code {
   font-style: italic;
 }
 
-.btn-div {
-} 
 
 .btn {
   padding-left: 2em;
@@ -98,4 +92,13 @@ code {
 .home {
   max-width: 90%;
   margin: auto;
+}
+
+@media (max-width: 450px){
+  .headers-btn {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
 }

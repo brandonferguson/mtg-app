@@ -28,7 +28,7 @@ class Sets extends Component {
         {/*<ul>*/}
         <div className="dropdown">
           <button
-            className="btn btn-primary btn-lg dropdown-toggle"
+            className="btn btn-primary btn-lg dropdown-toggle headers-btn"
             type="button"
             id="dropdownMenuButton"
             data-toggle="dropdown"
@@ -43,10 +43,7 @@ class Sets extends Component {
           >
             {filterSets.map(s => (
               <li key={s.code}>
-                <Link
-                  to={`/sets/${s.code}/${this.state.offsetPage}`}
-                  className="dropdown-item"
-                >
+                <Link to={`/sets/${s.code}`} className="dropdown-item">
                   {s.name}
                 </Link>
               </li>

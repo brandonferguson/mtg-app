@@ -84,6 +84,7 @@ class Cards extends Component {
             <div className="col-sm-12 col-md-6 col-lg-3 lightblue" key={c.id}>
               <div className="card">
                 {c.name} {/*card name */}
+                <p>{c.setName}</p>
                 <Link to={`/cards/${c.multiverseid}`}>
                   <img src={c.imageUrl} className="thumbnail" alt={c.name} />
                 </Link>

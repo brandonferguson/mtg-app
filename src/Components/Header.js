@@ -7,16 +7,16 @@ const Header = () => {
     <header>
       <ul className="nav darkblue">
         <li>
-          <Sets />
-        </li>
-        <li>
-          <NavLink to="/cards" className="btn btn-primary btn-lg">
-            All Cards
+          <NavLink exact to="/" className="btn btn-primary btn-lg headers-btn">
+            Home
           </NavLink>
         </li>
         <li>
-          <NavLink exact to="/" className="btn btn-primary btn-lg">
-            Home
+          <Sets />
+        </li>
+        <li>
+          <NavLink to="/cards" className="btn btn-primary btn-lg headers-btn">
+            All Cards
           </NavLink>
         </li>
       </ul>
