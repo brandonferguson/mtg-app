@@ -16,7 +16,6 @@ class App extends Component {
       <BrowserRouter>
         <div className="App row">
           <div className="btn-div">
-            {/*<div className="col-sm-1 col-md-2">*/}
             <Header />
           </div>
           <div>

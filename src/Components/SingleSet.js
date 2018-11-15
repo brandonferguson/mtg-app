@@ -25,24 +25,7 @@ class SingleSet extends Component {
     window.scrollTo(0, 0);
   }
 
-  // async componentDidUpdate(prevProps, prevState) {
-  //   const setCode = this.props.match.params.code;
-  //   const pageNum = this.props.match.params.offsetPage;
-  //   if (prevProps.offsetPage !== this.props.match.params.offsetPage) {
-  //     //const set = await fetch(
-  //     //`https://api.magicthegathering.io/v1/cards?set=${setCode}&page=${pageNum}`
-  //     //);
-  //     //const json = await set.json();
-  //     //this.setState({ cset: json.cards });
-  //     console.log(prevProps);
-  //     window.scrollTo(0, 0);
-  //   }
-  // }
-
-  /*incrementPage = () => {
-    this.offsetPage = this.props.match.params.offsetPage + 1;
-  };*/
-
+  //Brings back cards based off the offsetPage value
   fetchSet = async page => {
     const setCode = this.props.match.params.code;
     const set = await fetch(
@@ -52,13 +35,14 @@ class SingleSet extends Component {
     this.setState({ set: json.cards, offsetPage: page });
   };
 
+  // Updates offsetPage state by -1
   decrementPage = () => {
     var offsetPage = this.state.offsetPage - 1;
     if (offsetPage >= 1) {
       this.fetchSet(offsetPage);
     }
   };
-
+  // Updates offsetPage state by +1
   incrementPage = () => {
     var offsetPage = this.state.offsetPage + 1;
     if (offsetPage <= this.state.totalPages) {

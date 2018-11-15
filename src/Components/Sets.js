@@ -9,6 +9,7 @@ class Sets extends Component {
     };
   }
 
+  //API call to return list of sets
   async componentDidMount() {
     const sets = await fetch("https://api.magicthegathering.io/v1/sets/");
     const json = await sets.json();
@@ -19,13 +20,13 @@ class Sets extends Component {
   render() {
     const { sets } = this.state;
 
+    //Filters out any set that is not an "expansion" or "core"
     let filterSets = sets.filter(sets => {
       return sets.type === "expansion" || sets.type === "core";
     });
 
     return (
       <div className="row">
-        {/*<ul>*/}
         <div className="dropdown">
           <button
             className="btn btn-primary btn-lg dropdown-toggle headers-btn"
@@ -41,16 +42,16 @@ class Sets extends Component {
             className="dropdown-menu scrollable-menu"
             aria-labelledby="dropdownMenuButton"
           >
+            {/* Map to populate the dropdown list */}
             {filterSets.map(s => (
-              <li key={s.code}>
+              <span key={s.code}>
                 <Link to={`/sets/${s.code}`} className="dropdown-item">
                   {s.name}
                 </Link>
-              </li>
+              </span>
             ))}
           </div>
         </div>
-        {/*</ul>*/}
       </div>
     );
   }
