@@ -11,8 +11,13 @@ Once a list of cards has been provided, any card can be clicked on to provide mo
 
 ### Steps to run:
 1 - Download the repo from Github
+
 2 - Open your favorite terminal
+
 3 - Navigate to the folder where you saved the repo
+
 4 - Run "npm install" to download and install depenencies 
+
 5 - Type "npm run" and hit enter to start the project 
+
 6 - The page will load and run from localhost and open in a new window
