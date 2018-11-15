@@ -49,11 +49,6 @@ class Card extends Component {
         <div className="midblue col-sm-6">
           <img src={card.imageUrl} alt={card.name} className="cardImage" />
         </div>
-        {/*
-        {singleCard.map(c => (
-          <div className="col-sm-3">{c.name}</div>
-        ))}
-        */}
       </div>
     );
   }

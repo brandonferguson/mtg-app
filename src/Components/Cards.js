@@ -23,18 +23,7 @@ class Cards extends Component {
     window.scrollTo(0, 0);
   }
 
-  // async componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.offsetPage !== this.state.offsetPage) {
-  //     const cards = await fetch(
-  //       `https://api.magicthegathering.io/v1/cards?page=${
-  //         this.state.offsetPage
-  //       }`
-  //     );
-  //     const json = await cards.json();
-  //     this.setState({ cards: json.cards });
-  //   }
-  // }
-
+  //Brings back a list of cards based off the offsetPage value
   fetchCards = async page => {
     const cards = await fetch(
       `https://api.magicthegathering.io/v1/cards?page=${page}&pageSize=12`
@@ -43,13 +32,14 @@ class Cards extends Component {
     this.setState({ cards: json.cards, offsetPage: page });
   };
 
+  // Updates offsetPage state by -1
   decrementPage = () => {
     var offsetPage = this.state.offsetPage - 1;
     if (offsetPage >= 1) {
       this.fetchCards(offsetPage);
     }
   };
-
+  // Updates offsetPage state by +1
   incrementPage = () => {
     var offsetPage = this.state.offsetPage + 1;
     if (offsetPage <= this.state.totalPages) {
